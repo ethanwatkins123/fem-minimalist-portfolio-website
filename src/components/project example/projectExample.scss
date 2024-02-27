@@ -1,0 +1,78 @@
+@use "../../styles/util/" as u;
+
+.example {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-block-end: u.rem(72);
+
+  @include u.breakpoint(medium) {
+    flex-direction: row;
+    gap: u.rem(69);
+    margin-block-end: u.rem(80);
+  }
+
+  @include u.breakpoint(large) {
+    gap: u.rem(125);
+  }
+
+  &.reversed {
+    @include u.breakpoint(medium) {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-width: u.rem(540);
+    margin-block-end: u.rem(32);
+
+    @include u.breakpoint(medium) {
+      margin: u.rem(51) 0 u.rem(51);
+    }
+
+    @include u.breakpoint(large) {
+      margin: 0;
+    }
+  }
+
+  &__content {
+    max-width: u.rem(350);
+    border-bottom: 1px solid hsl(245, 10%, 22%, 0.15);
+
+    @include u.breakpoint(medium) {
+      border-top: 1px solid hsl(245, 10%, 22%, 0.15);
+    }
+  }
+
+  &__heading {
+    font-weight: 700;
+    letter-spacing: -0.357px;
+    margin-block-end: u.rem(24);
+
+    @include u.breakpoint(medium) {
+      margin-block-start: u.rem(32);
+      margin-block-end: u.rem(29);
+    }
+
+    @include u.breakpoint(large) {
+      margin-block-start: u.rem(103);
+    }
+  }
+
+  &__body {
+    color: var(--clr-grayish-dk-blue-lt);
+    font-size: 15px;
+    line-height: u.rem(30);
+    margin-block-end: u.rem(24);
+
+    @include u.breakpoint(medium) {
+      margin-block-end: u.rem(35);
+    }
+  }
+
+  &__link {
+    margin-block-end: u.rem(24);
+  }
+}

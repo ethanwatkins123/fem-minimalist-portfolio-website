@@ -1,0 +1,54 @@
+@use "../util/" as u;
+
+.button {
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  font-size: u.rem(12);
+  letter-spacing: 2px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.button-primary {
+  width: u.rem(200);
+  display: flex;
+  align-items: stretch;
+  background-color: var(--clr-dk-blue);
+  color: var(--clr-very-lt-grey);
+
+  & div {
+    padding: 17px 16px;
+    background-color: hsla(0, 0%, 0%, 0.1);
+
+    & svg {
+      width: 16px;
+      height: 14px;
+    }
+  }
+
+  & span {
+    padding: 17px 37px;
+  }
+
+  &:hover {
+    background-color: var(--clr-desat-cyan);
+  }
+  &:hover div svg path {
+    stroke: var(--clr-very-lt-grey);
+  }
+}
+
+.button-secondary {
+  min-width: u.rem(162);
+  color: var(--clr-grayish-dk-blue);
+  background-color: var(--clr-very-lt-grey);
+  padding: 16px 32px;
+  border: 1px solid var(--clr-grayish-dk-blue);
+  text-align: center;
+
+  &:hover {
+    color: var(--clr-very-lt-grey);
+    background-color: (var(--clr-grayish-dk-blue));
+  }
+}

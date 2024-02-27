@@ -1,0 +1,87 @@
+@use "../../styles/util/" as u;
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: u.rem(64) 0 u.rem(54);
+
+  &__image-wrapper {
+    width: u.rem(60);
+  }
+
+  &__menu {
+    @include u.breakpoint-down(small) {
+      position: fixed;
+      top: u.rem(88);
+      right: u.rem(32);
+      padding: u.rem(34) 60px;
+      background-color: var(--clr-grayish-dk-blue);
+      translate: 100vw 0;
+      transition: translate 0.5s ease-in-out;
+      min-width: u.rem(223);
+    }
+  }
+
+  &__open {
+    opacity: 1; // Initial opacity when aria-expanded is true
+    transition: opacity 0.1s ease-in-out, visibility 0s linear 0.25s;
+  }
+
+  &__open[aria-expanded="true"] {
+    opacity: 0;
+    visibility: hidden;
+
+    + .topnav__menu {
+      translate: 0;
+    }
+  }
+
+  &[aria-expanded="false"] &__open {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 1s;
+  }
+
+  &__close {
+    position: absolute;
+    top: u.rem(-49);
+    right: u.rem(3);
+  }
+
+  &__open,
+  &__close {
+    @include u.breakpoint(medium) {
+      display: none;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: u.rem(40);
+    font-size: u.rem(12);
+
+    @include u.breakpoint-down(small) {
+      gap: u.rem(32);
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    color: var(--clr-grayish-dk-blue);
+    letter-spacing: u.rem(2);
+
+    @include u.breakpoint-down(small) {
+      color: #fff;
+    }
+  }
+
+  @include u.breakpoint-down(medium) {
+    padding: u.rem(64) 0 u.rem(47);
+  }
+
+  @include u.breakpoint-down(small) {
+    padding: u.rem(32) 0 u.rem(40);
+  }
+}

@@ -1,0 +1,39 @@
+@use "../../styles/util/" as u;
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: u.rem(115) 0 u.rem(80);
+  border-top: 1px solid hsl(245, 10%, 22%, 0.15);
+
+  &__heading {
+    font-weight: 700;
+    letter-spacing: -0.357px;
+    margin-block-end: u.rem(40);
+    max-width: u.rem(350);
+    @include u.breakpoint(medium) {
+      margin-block-end: 0;
+    }
+  }
+
+  &__separator {
+    border-bottom: 1px solid hsl(245, 10%, 22%, 0.15);
+    min-width: u.rem(110);
+    flex-grow: 1;
+
+    @include u.breakpoint-down(small) {
+      display: none;
+    }
+  }
+
+  @include u.breakpoint(medium) {
+    flex-direction: row;
+    text-align: left;
+    padding: u.rem(96) 0;
+    gap: u.rem(32);
+    justify-content: space-between;
+    border: none;
+  }
+}
